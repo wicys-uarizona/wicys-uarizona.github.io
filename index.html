@@ -1573,12 +1573,13 @@ function bgOpen() {
   });
   card.querySelector("button").onclick = () => ambSet(false);
   requestAnimationFrame(() => card.classList.add("on"));
-  setTimeout(() => {
-    if (!ok && AMB.on) {
-      bgClose();
-      ambStart();
-    }
-  }, 2500);
+  if (!LIVE_SITE)
+    setTimeout(() => {
+      if (!ok && AMB.on) {
+        bgClose();
+        ambStart();
+      }
+    }, 2500);
 }
 function bgClose() {
   const card = document.getElementById("bgcard");
@@ -1716,7 +1717,7 @@ function funkBeat(bpm = 150, beats = 24) {
   };
 }
 const FOX_POOL = [0, 1, 2, 3, 4, 6, 7, 8, 9];
-const FOX_LINES = { 0: "paw.exe: the fox waves hi.", 1: "high five! access granted.", 2: "head tilt. the fox is reviewing your code.", 3: "chasing its tail. infinite loop detected.", 4: "play bow. it wants to CTF with you.", 6: "jump! the fox just cleared the firewall.", 7: "dance.exe: the fox busts a move.", 8: "passinho do jamal! sound on.", 9: "breaking the fourth wall..." };
+const FOX_LINES = { 0: "paw.exe: the fox waves hi.", 1: "high five! access granted.", 2: "head tilt. the fox is reviewing your code.", 3: "chasing its tail. infinite loop detected.", 4: "play bow. it wants to CTF with you.", 6: "jump! the fox just cleared the firewall.", 7: "dance.exe: the fox busts a move.", 8: "WHAT DOES THE FOX SAY?!", 9: "breaking the fourth wall..." };
 let foxLast = -1;
 function pickTrick(pool = FOX_POOL) {
   let n;
@@ -1764,9 +1765,10 @@ function slobber() {
   void el.offsetWidth;
   el.classList.add("go");
 }
-const JAMAL_SONG = "qUWYqpqTwjo";
+const JAMAL_SONG = "jofNR_WkoCE", JAMAL_START = 55, JAMAL_END = 66;
+const LIVE_SITE = /wicysuarizona\.com$|github\.io$/.test(location.hostname);
 let songTimer = 0;
-function jamalSong(sec = 10) {
+function jamalSong(sec = JAMAL_END - JAMAL_START + 0.5) {
   ambDuck(sec + 0.5);
   if (BG.yt && BG.frame) {
     const fr = BG.frame;
@@ -1789,7 +1791,13 @@ function jamalSong(sec = 10) {
       ok = true;
   };
   addEventListener("message", onMsg);
-  card.innerHTML = `<span>\u266A Ela K\xE9 Cavucadinha</span><iframe title="Ela K\xE9 Cavucadinha" allow="autoplay; encrypted-media" src="https://www.youtube-nocookie.com/embed/${JAMAL_SONG}?autoplay=1&enablejsapi=1&controls=0&modestbranding=1&playsinline=1&origin=${encodeURIComponent(location.origin)}"></iframe><button type="button" aria-label="Stop the song">\xD7</button>`;
+  card.innerHTML = `<span>\u266A What Does the Fox Say?</span><iframe title="What Does the Fox Say?" allow="autoplay; encrypted-media" src="https://www.youtube-nocookie.com/embed/${JAMAL_SONG}?autoplay=1&start=${JAMAL_START}&end=${JAMAL_END}&enablejsapi=1&controls=0&modestbranding=1&playsinline=1&origin=${encodeURIComponent(location.origin)}"></iframe><button type="button" aria-label="Stop the song">\xD7</button>`;
+  card.querySelector("iframe").addEventListener("load", (e) => {
+    try {
+      e.target.contentWindow.postMessage(JSON.stringify({ event: "listening", id: "fox" }), "*");
+    } catch (err) {
+    }
+  });
   const close = () => {
     card.classList.remove("on");
     setTimeout(() => {
@@ -1800,12 +1808,13 @@ function jamalSong(sec = 10) {
   };
   card.querySelector("button").onclick = close;
   requestAnimationFrame(() => card.classList.add("on"));
-  setTimeout(() => {
-    if (!ok) {
-      close();
-      funkBeat();
-    }
-  }, 2500);
+  if (!LIVE_SITE)
+    setTimeout(() => {
+      if (!ok) {
+        close();
+        funkBeat();
+      }
+    }, 2500);
   songTimer = setTimeout(close, sec * 1e3);
 }
 function lickRunner(fox, sc) {
@@ -1984,7 +1993,7 @@ function makeFox() {
   hit.position.set(0, 0.52, 0);
   g.add(hit);
   hit.userData = { kind: "fox", tip: "the fox \xB7 <span>click it</span>" };
-  const TRICKS = [{ n: "wave", d: 3.4 }, { n: "five", d: 2.8 }, { n: "tilt", d: 3 }, { n: "chase", d: 2.8 }, { n: "bow", d: 3.2 }, { n: "sip", d: 3.8 }, { n: "jump", d: 1.7 }, { n: "dance", d: 5.6 }, { n: "jamal", d: 9.8 }, { n: "lick", d: 1.6 }];
+  const TRICKS = [{ n: "wave", d: 3.4 }, { n: "five", d: 2.8 }, { n: "tilt", d: 3 }, { n: "chase", d: 2.8 }, { n: "bow", d: 3.2 }, { n: "sip", d: 3.8 }, { n: "jump", d: 1.7 }, { n: "dance", d: 5.6 }, { n: "jamal", d: 11 }, { n: "lick", d: 1.6 }];
   const st = { trick: -1, tt: 0, turn: 0, speed: 0, gait: 0, step: 0, wag: 0, glow: 0, lookYaw: 0, lookPitch: 0, tilt: 0, sipping: false, earT: 2 };
   const sm = (x) => x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x), env = (p, a, b) => sm(Math.min(p / a, (1 - p) / b, 1));
   const SP = {};
@@ -3312,7 +3321,7 @@ function buildIntro() {
     T.booting = false;
     T.dirty = true;
   }
-  const HELP = [["enter", "go to the chapter site"], ["events", "open the calendar"], ["speakers", "speaker series"], ["dens", "Fox Dens (interest groups)"], ["certs", "certification program"], ["join", "how to become a member"], ["fox", "make the fox do a trick"], ["dance", "make the fox dance"], ["jamal", "passinho do jamal"], ["whoami", "who we are"], ["neofetch", "chapter info"], ["ls", "look around"], ["clear", "clear the screen"]];
+  const HELP = [["enter", "go to the chapter site"], ["events", "open the calendar"], ["speakers", "speaker series"], ["dens", "Fox Dens (interest groups)"], ["certs", "certification program"], ["join", "how to become a member"], ["fox", "make the fox do a trick"], ["dance", "make the fox dance"], ["foxsay", "what does the fox say?!"], ["whoami", "who we are"], ["neofetch", "chapter info"], ["ls", "look around"], ["clear", "clear the screen"]];
   function run(raw) {
     const cmd = raw.trim();
     pushCmd(raw);
@@ -3354,7 +3363,7 @@ function buildIntro() {
       dfox.lick();
       return;
     }
-    if (c === "jamal" || c === "passinho") {
+    if (c === "foxsay" || c === "jamal" || c === "passinho") {
       dfox.dance(8);
       return;
     }
