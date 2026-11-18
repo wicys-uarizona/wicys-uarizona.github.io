@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>WiCyS UArizona</title>
+<title>WiCyS UArizona | Women in Cybersecurity at the University of Arizona</title>
+<meta name="description" content="WiCyS UArizona is the University of Arizona student chapter of Women in Cybersecurity. Workshops, speaker series, Fox Dens interest groups and certifications in Tucson, AZ.">
+<link rel="canonical" href="https://wicysuarizona.com/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#110c17">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WiCyS UArizona">
+<meta property="og:title" content="WiCyS UArizona | Women in Cybersecurity at the University of Arizona">
+<meta property="og:description" content="WiCyS UArizona is the University of Arizona student chapter of Women in Cybersecurity. Workshops, speaker series, Fox Dens interest groups and certifications in Tucson, AZ.">
+<meta property="og:url" content="https://wicysuarizona.com/">
+<meta property="og:image" content="https://wicysuarizona.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "WiCyS UArizona", "alternateName": ["WiCyS University of Arizona", "Women in Cybersecurity UArizona"], "url": "https://wicysuarizona.com/"}, {"@context": "https://schema.org", "@type": "Organization", "name": "WiCyS UArizona", "alternateName": "Women in Cybersecurity, University of Arizona Student Chapter", "url": "https://wicysuarizona.com/", "logo": "https://wicysuarizona.com/icon-512.png", "description": "WiCyS UArizona is the University of Arizona student chapter of Women in Cybersecurity. Workshops, speaker series, Fox Dens interest groups and certifications in Tucson, AZ.", "parentOrganization": {"@type": "Organization", "name": "Women in CyberSecurity (WiCyS)", "url": "https://www.wicys.org"}, "sameAs": ["https://www.wicys.org/project/university-of-arizona/", "https://arizona.campusgroups.com/WiCyS/", "https://discord.gg/bSGQTjDmHd"], "address": {"@type": "PostalAddress", "addressLocality": "Tucson", "addressRegion": "AZ", "addressCountry": "US"}}]</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -587,6 +602,11 @@ a.pcard:hover{border-color:#4f8fd6;background:var(--panel-2);background:color-mi
 #bgcard span{display:block;padding:7px 34px 7px 10px;font:600 11px var(--f-mono);color:var(--lime)}
 #bgcard button{position:absolute;top:2px;right:6px;border:0;background:none;color:var(--mute);font-size:18px;cursor:pointer}
 #songcard button{position:absolute;top:2px;right:6px;border:0;background:none;color:var(--mute);font-size:18px;cursor:pointer}
+#songcard button.mini,#bgcard button.mini{right:30px;font-size:17px}
+#songcard span,#bgcard span{padding-right:58px}
+#songcard.min,#bgcard.min{width:auto}
+#songcard.min iframe,#bgcard.min iframe{height:0;width:260px;position:absolute;pointer-events:none;opacity:0}
+#songcard.min span,#bgcard.min span{cursor:pointer}
 @media (prefers-reduced-motion:reduce){#slobber.go{animation-duration:2s}}
 .amb{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:none;color:var(--mute);border-radius:999px;padding:6px 11px;font:600 11px var(--f-mono);cursor:pointer;white-space:nowrap}
 .amb:hover{border-color:var(--lime);color:var(--fg)}
@@ -597,6 +617,24 @@ a.pcard:hover{border-color:#4f8fd6;background:var(--panel-2);background:color-mi
 .amb.on .eq i:nth-child(2){animation-delay:-.3s}.amb.on .eq i:nth-child(3){animation-delay:-.6s}
 @keyframes eqb{0%,100%{height:3px}50%{height:12px}}
 @media (prefers-reduced-motion:reduce){.amb.on .eq i{animation:none;height:8px}}
+
+/* ---------- phones ---------- */
+.hint-phone{display:none}
+.nav-toggle{display:none}
+@media (max-width:860px){
+  .hint-desk{display:none}.hint-phone{display:inline}
+  .top .wrap{flex-wrap:wrap;gap:10px}
+  .nav-toggle{display:inline-flex;align-items:center;gap:8px;margin-left:auto;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:999px;padding:9px 14px;font:600 13px var(--f-mono);cursor:pointer}
+  .nav-toggle i{display:block;width:16px;height:2px;background:currentColor;box-shadow:0 5px 0 currentColor,0 -5px 0 currentColor}
+  nav.links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:2px;margin:0;padding:6px 0 10px}
+  header.top.open nav.links{display:flex}
+  nav.links a,nav.links a.navsub{flex-direction:row;align-items:baseline;justify-content:space-between;padding:14px 6px;font-size:17px;border-bottom:1px solid var(--line);border-radius:0}
+  nav.links a.navsub small,nav.links a.navsub small.stack{font-size:10px;text-align:right;align-items:flex-end}
+  nav.links a.on::after{left:0;right:auto;top:12px;bottom:12px;width:3px;height:auto}
+  nav.links a.joinlink{justify-content:center;margin-top:8px;border-bottom:0;border-radius:8px}
+  nav.links .amb{align-self:flex-start;margin-top:8px}
+  #songcard,#bgcard{width:min(240px,calc(100vw - 32px))}
+}
 </style>
 </head><body>
 
@@ -615,7 +653,7 @@ a.pcard:hover{border-color:#4f8fd6;background:var(--panel-2);background:color-mi
   </div>
   <div class="hud hud-tl"><b>wicys@uarizona</b> :: desk.local<br><span id="hud-clock"></span></div>
   <div class="hud hud-bottom">
-    <div class="hint">click the screen or type <kbd>enter</kbd> · try <kbd>help</kbd> · poke the things on the desk</div>
+    <div class="hint"><span class="hint-desk">click the screen or type <kbd>enter</kbd> · try <kbd>help</kbd> · poke the things on the desk</span><span class="hint-phone">tap the screen to enter · swipe sideways to see the desk</span></div>
     <div class="row">
       <button class="btn primary mag" id="enter-btn" type="button">Step inside <span class="arr">→</span></button>
       <button class="btn ghost mag" id="skip-btn" type="button">Skip intro</button>
@@ -631,7 +669,8 @@ a.pcard:hover{border-color:#4f8fd6;background:var(--panel-2);background:color-mi
   <header class="top">
     <div class="wrap">
       <a class="brand" href="#home" aria-label="WiCyS UArizona home"><img alt="WiCyS Women in Cybersecurity, University of Arizona Student Chapter" id="brand-logo"></a>
-      <nav class="links" aria-label="Main">
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav"><i></i>menu</button>
+      <nav class="links" id="main-nav" aria-label="Main">
         <a href="#home" data-nav="home">Home</a>
         <a href="#events" data-nav="events" class="navsub">Events<small>all events</small></a>
         <a href="#speakers" data-nav="speakers" class="navsub">Speaker Series<small class="stack"><span>Grey Hat’s Anatomy</span><span>How I Met Your Professor</span></small></a>
@@ -1178,6 +1217,13 @@ const LOGO = $("#logo-src").src;
 $("#brand-logo").src = LOGO;
 $("#foot-ua").src = $("#ua-src").src;
 $("#amb-btn").addEventListener("click", () => ambSet(!AMB.on));
+{ const hdr = document.querySelector("header.top"), tg = hdr.querySelector(".nav-toggle");
+  tg.addEventListener("click", () => { const o = !hdr.classList.contains("open"); hdr.classList.toggle("open", o); tg.setAttribute("aria-expanded", o); });
+  hdr.querySelector("nav.links").addEventListener("click", (e) => { if (e.target.closest("a")) { hdr.classList.remove("open"); tg.setAttribute("aria-expanded", false); } }); }
+// music players: the dash shrinks a player to a small pill (the song keeps playing), tap the pill to open it again
+document.addEventListener("click", (e) => { const m = e.target.closest("#songcard .mini, #bgcard .mini, #songcard.min span, #bgcard.min span"); if (!m) return;
+  const card = m.closest("#songcard, #bgcard"); const mn = !card.classList.contains("min") || m.classList.contains("mini") && !card.classList.contains("min"); card.classList.toggle("min");
+  const b = card.querySelector(".mini"); if (b) b.textContent = card.classList.contains("min") ? "+" : "\u2013"; });
 try {
   if (localStorage.getItem("wicys-amb") === "1")
     addEventListener("pointerdown", function f(e) {
@@ -1563,7 +1609,7 @@ function bgOpen() {
   };
   addEventListener("message", onMsg);
   BG.onMsg = onMsg;
-  card.innerHTML = `<span>\u266A OSAKA \xB7 level7</span><iframe title="OSAKA by level7" allow="autoplay; encrypted-media" src="https://www.youtube-nocookie.com/embed/${BG_SONG}?autoplay=1&loop=1&playlist=${BG_SONG}&enablejsapi=1&modestbranding=1&playsinline=1&origin=${encodeURIComponent(location.origin)}"></iframe><button type="button" aria-label="Turn the music off">\xD7</button>`;
+  card.innerHTML = `<span>\u266A OSAKA \xB7 level7</span><iframe title="OSAKA by level7" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/${BG_SONG}?autoplay=1&loop=1&playlist=${BG_SONG}&enablejsapi=1&modestbranding=1&playsinline=1&origin=${encodeURIComponent(location.origin)}"></iframe><button type="button" aria-label="Turn the music off">\xD7</button><button type="button" class="mini" aria-label="Minimize player" title="Minimize">\u2013</button>`;
   BG.frame = card.querySelector("iframe");
   BG.frame.addEventListener("load", () => {
     try {
@@ -1573,13 +1619,6 @@ function bgOpen() {
   });
   card.querySelector("button").onclick = () => ambSet(false);
   requestAnimationFrame(() => card.classList.add("on"));
-  if (!LIVE_SITE)
-    setTimeout(() => {
-      if (!ok && AMB.on) {
-        bgClose();
-        ambStart();
-      }
-    }, 2500);
 }
 function bgClose() {
   const card = document.getElementById("bgcard");
@@ -1791,7 +1830,7 @@ function jamalSong(sec = JAMAL_END - JAMAL_START + 0.5) {
       ok = true;
   };
   addEventListener("message", onMsg);
-  card.innerHTML = `<span>\u266A What Does the Fox Say?</span><iframe title="What Does the Fox Say?" allow="autoplay; encrypted-media" src="https://www.youtube-nocookie.com/embed/${JAMAL_SONG}?autoplay=1&start=${JAMAL_START}&end=${JAMAL_END}&enablejsapi=1&controls=0&modestbranding=1&playsinline=1&origin=${encodeURIComponent(location.origin)}"></iframe><button type="button" aria-label="Stop the song">\xD7</button>`;
+  card.innerHTML = `<span>\u266A What Does the Fox Say?</span><iframe title="What Does the Fox Say?" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/${JAMAL_SONG}?autoplay=1&start=${JAMAL_START}&end=${JAMAL_END}&enablejsapi=1&controls=0&modestbranding=1&playsinline=1&origin=${encodeURIComponent(location.origin)}"></iframe><button type="button" aria-label="Stop the song">\xD7</button><button type="button" class="mini" aria-label="Minimize player" title="Minimize">\u2013</button>`;
   card.querySelector("iframe").addEventListener("load", (e) => {
     try {
       e.target.contentWindow.postMessage(JSON.stringify({ event: "listening", id: "fox" }), "*");
@@ -1808,13 +1847,6 @@ function jamalSong(sec = JAMAL_END - JAMAL_START + 0.5) {
   };
   card.querySelector("button").onclick = close;
   requestAnimationFrame(() => card.classList.add("on"));
-  if (!LIVE_SITE)
-    setTimeout(() => {
-      if (!ok) {
-        close();
-        funkBeat();
-      }
-    }, 2500);
   songTimer = setTimeout(close, sec * 1e3);
 }
 function lickRunner(fox, sc) {
@@ -2256,7 +2288,7 @@ function makeFox() {
         }
         case "sip": {
           const e3 = env(p, 0.2, 0.2);
-          nod += 0.38 * e3 + Math.sin(q * 9) * 0.035 * e3;
+          nod += 0.2 * e3 + Math.sin(q * 9) * 0.03 * e3;
           yaw = 0;
           tilt = 0.06 * e3;
           F[1] = 0.15 * e3;
@@ -2365,7 +2397,7 @@ function deskFox(scene, camera, clickables, mug, say, C) {
   scene.add(fox.group);
   clickables.push(fox.hit);
   const LR = lickRunner(fox, 1.2);
-  const cupP = mug.position, tip = [cupP.x + 0.083, cupP.z - 0.02], home = [tip[0] - 0.47 * 0.7071, tip[1] - 0.47 * 0.7071];
+  const cupP = mug.position, tip = [cupP.x + 0.083, cupP.z - 0.02], home = [cupP.x - 0.52 * 0.7071, cupP.z - 0.52 * 0.7071];
   const R = [home, [-2.3, 0.4], [-1.1, 0.22], [0.2, 0.2], [1.4, 0.22], [2.65, 0.3], [2.6, 1]];
   const F = { x: home[0], z: home[1], yaw: 0, at: 0, path: [], face: null, faceT: 0, clicks: 0, hover: false, wantSip: false, idleSip: 11, rest: 4, spd: 0 };
   function route(to) {
@@ -2480,6 +2512,7 @@ function deskFox(scene, camera, clickables, mug, say, C) {
       F.x += Math.sin(F.yaw) * F.spd * dt;
       F.z += Math.cos(F.yaw) * F.spd * dt;
     }
+    { const cx = F.x - cupP.x, cz = F.z - cupP.z, cd = Math.hypot(cx, cz); if (cd < 0.5 && cd > 1e-4) { F.x = cupP.x + cx / cd * 0.5; F.z = cupP.z + cz / cd * 0.5; } }
     if (!(fox.busy() && st.trick === 3))
       F.yaw = lerpAngle(F.yaw, goal, Math.min(1, dt * (F.spd > 0.1 ? 4 : 3)));
     st.speed = F.spd / 1.2;
@@ -3477,8 +3510,17 @@ function buildIntro() {
   const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
   let hovered = null;
   const tip = $("#tip");
-  let nx = 0, ny = 0;
+  let nx = 0, ny = 0, panX = 0, PANMAX = 0, drag = null, dragged = false;
+  canvas.style.touchAction = "none";
+  canvas.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") { drag = { x: e.clientX, p: panX }; dragged = false; } });
+  addEventListener("pointerup", () => { drag = null; });
+  addEventListener("pointercancel", () => { drag = null; });
+  canvas.addEventListener("click", (e) => { if (dragged) { e.stopImmediatePropagation(); dragged = false; } }, true);
   canvas.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") {
+      if (drag) { const dx = e.clientX - drag.x; if (Math.abs(dx) > 8) dragged = true; if (dragged) panX = Math.max(-PANMAX, Math.min(PANMAX, drag.p - dx / innerWidth * 6)); }
+      if (dragged) return;
+    }
     const r = canvas.getBoundingClientRect();
     ndc.x = (e.clientX - r.left) / r.width * 2 - 1;
     ndc.y = -(e.clientY - r.top) / r.height * 2 + 1;
@@ -3597,9 +3639,13 @@ function buildIntro() {
     camera.aspect = w / h;
     homePos = HOME.pos.clone();
     if (camera.aspect < 1.25) {
-      homePos.z += (1.25 / camera.aspect - 1) * 6.5;
-      homePos.y += (1.25 / camera.aspect - 1) * 1.1;
+      // phones: frame the monitor up close and let people swipe sideways to see the rest of the desk
+      const k = 1.25 / camera.aspect - 1;
+      homePos.z += k * (camera.aspect < 0.8 ? 2.6 : 6.5);
+      homePos.y += k * (camera.aspect < 0.8 ? 0.45 : 1.1);
     }
+    PANMAX = camera.aspect < 0.8 ? 2.7 : 0;
+    panX = Math.max(-PANMAX, Math.min(PANMAX, panX));
     const dist = homePos.distanceTo(HOME.look);
     scene.fog.near = dist * 0.9;
     scene.fog.far = dist + 15;
@@ -3663,9 +3709,10 @@ function buildIntro() {
     dfox.update(dt, t);
     glow.intensity = 0.8 + Math.sin(t * 2.3) * 0.08;
     if (!diving) {
-      const target = homePos.clone().add(new THREE.Vector3(nx * 0.7, ny * 0.4, 0));
-      camera.position.lerp(target, reduced ? 1 : 0.045);
-      look.lerp(new THREE.Vector3(HOME.look.x + nx * 0.25, HOME.look.y + ny * 0.12, 0), 0.06);
+      const touchy = PANMAX > 0, px = touchy ? 0 : nx, py = touchy ? 0 : ny;
+      const target = homePos.clone().add(new THREE.Vector3(px * 0.7 + panX, py * 0.4, 0));
+      camera.position.lerp(target, reduced ? 1 : touchy ? 0.12 : 0.045);
+      look.lerp(new THREE.Vector3(HOME.look.x + px * 0.25 + panX, HOME.look.y + py * 0.12 - (touchy ? 0.35 : 0), 0), touchy ? 0.14 : 0.06);
       camera.lookAt(look);
     } else {
       diveT = Math.min(1, (performance.now() - diveStart) / (reduced ? 300 : 1300));
@@ -4350,10 +4397,6 @@ function drawArt(c) {
   const r = c.getBoundingClientRect(), d = Math.min(devicePixelRatio, 2);
   c.width = Math.max(1, r.width * d);
   c.height = Math.max(1, r.height * d);
-  if (!cw || !ch) {
-    reelRaf = requestAnimationFrame(tick);
-    return;
-  }
   const g = c.getContext("2d"), W = c.width, H = c.height;
   let s = +c.dataset.seed || 1;
   const rnd = () => (s = s * 16807 % 2147483647) / 2147483647;
